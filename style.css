@@ -54,14 +54,25 @@ body {
     border-color: #2ecc71;
 }
 
+.form-box.success i.fa-check {
+    color: #2ecc71;
+    visibility: visible;
+}
+
 .form-box.error input {
     border-color: #e74c3d;
+}
+
+.form-box.error i.fa-times {
+    color: #e74c3d;
+    visibility: visible;
 }
 
 .form-box i {
     position: absolute;
     top: 2.2rem;
     right: 0.625rem;
+    visibility: hidden;
 }
 
 .form-box p {
@@ -69,6 +80,11 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.form-box.error p {
+    color: #e74c3d;
+    visibility: visible;
 }
 
 .btn {
