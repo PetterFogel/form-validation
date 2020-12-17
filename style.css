@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: rgb(211, 50, 168);
+    background: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,15 +43,13 @@ body {
 }
 
 .form-box input {
-    border: 0.125rem solid #ddd;
-    display: block;
     padding: 0.5rem;
     width: 100%;
     outline: none;
 }
 
-.form-box.success input {
-    border-color: #2ecc71;
+.success {
+    border: 2px solid #2ecc71;
 }
 
 .form-box.success i.fa-check {
@@ -59,13 +57,8 @@ body {
     visibility: visible;
 }
 
-.form-box.error input {
-    border-color: #e74c3d;
-}
-
-.form-box.error i.fa-times {
-    color: #e74c3d;
-    visibility: visible;
+.error {
+    border: 2px solid #e74c3d;
 }
 
 .form-box i {
@@ -73,6 +66,11 @@ body {
     top: 2.2rem;
     right: 0.625rem;
     visibility: hidden;
+}
+
+.form-box i.icon-error {
+    color: #e74c3d;
+    visibility: visible;
 }
 
 .form-box p {
@@ -95,7 +93,6 @@ body {
     display: block;
     font-size: 1rem;
     padding: 0.625rem;
-    width: 100%;
     outline: none;
     cursor: pointer;
 }
