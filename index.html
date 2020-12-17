@@ -8,11 +8,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
         integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
         crossorigin="anonymous"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>From with validation</title>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <div class="container">
@@ -20,19 +20,19 @@
             <h2>Sign Up</h2>
         </div>
         <form class="form" id="form">
-            <div class="form-box success">
+            <div class="form-box">
                 <label>Username</label>
                 <input type="text" id="username">
                 <i class="fas fa-check"></i>
                 <i class="fas fa-times"></i>
                 <p>Error message</p>
             </div>
-            <div class="form-box error">
+            <div class="form-box">
                 <label>Email</label>
                 <input type="email" id="email">
                 <i class="fas fa-check"></i>
                 <i class="fas fa-times"></i>
-                <p>Error message</p>
+                <p>Field cannot be empty</p>
             </div>
             <div class="form-box">
                 <label>Password</label>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-box">
                 <label>Password Check</label>
-                <input type="password" id="passwordcheck">
+                <input type="password" id="password-check">
                 <i class="fas fa-check"></i>
                 <i class="fas fa-times"></i>
                 <p>Error message</p>
@@ -51,6 +51,5 @@
             <button class="btn">Create</button>
         </form>
     </div>
-    
 </body>
 </html>
