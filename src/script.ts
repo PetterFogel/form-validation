@@ -9,9 +9,7 @@ function main() {
     addEventListeners();
 }
 
-function addEventListeners() {
-    // let form: any; 
-    
+function addEventListeners() {    
     const form = document.getElementById("form") as HTMLFormElement;
     form.addEventListener("submit", (event: Event) => {
         event.preventDefault();
@@ -24,8 +22,6 @@ function checkValidInputValues() {
     const emailValue = email.value;
     const passwordValue = password.value;
     const password2Value = password2.value;
-
-    console.log(password2Value);
 
     if (userValue === "") {
         errorControl(user);
@@ -41,6 +37,8 @@ function checkValidInputValues() {
 
     if (passwordValue === "") {
         errorControl(password);
+    } else if (passwordValue !== password2Value) {
+        passwordControl(password);
     } else {
         successControl(password);
     }
