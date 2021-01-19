@@ -73,7 +73,14 @@ function successControl(input: HTMLInputElement) {
     successIcon.classList.add("icon-success");
 
     input.classList.add("success-border");
+
+    test(input);
 }
+
+function test(input: any) {
+    localStorage.setItem("User", input);
+}
+
 
 function passwordControl(input: HTMLInputElement) {
     let formControl: any;

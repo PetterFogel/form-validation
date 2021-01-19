@@ -65,6 +65,10 @@ function successControl(input) {
     const successIcon = formControl.querySelector(".fa-check");
     successIcon.classList.add("icon-success");
     input.classList.add("success-border");
+    test(input);
+}
+function test(input) {
+    localStorage.setItem("User", input);
 }
 function passwordControl(input) {
     let formControl;
