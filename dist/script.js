@@ -68,7 +68,7 @@ function successControl(input) {
     test(input);
 }
 function test(input) {
-    localStorage.setItem("User", input);
+    localStorage.setItem(input.name, input.value);
 }
 function passwordControl(input) {
     let formControl;

@@ -77,8 +77,8 @@ function successControl(input: HTMLInputElement) {
     test(input);
 }
 
-function test(input: any) {
-    localStorage.setItem("User", input);
+function test(input: HTMLInputElement) {
+    localStorage.setItem(input.name, input.value);
 }
 
 
