@@ -36,6 +36,13 @@ function checkValidInputValues() {
         successControl(email);
         successControl(password);
         successControl(password2);
+
+        const userObj = {
+            username: user.value,
+            useremail: email.value,
+            password: password.value
+        }
+    saveToLocalStorage(userObj);
     }
 
     // if (userValue === "") {
@@ -67,6 +74,20 @@ function checkValidInputValues() {
     // }
 }
 
+function saveToLocalStorage(userObj: object) {
+    localStorage.setItem("user", JSON.stringify(userObj));
+}
+
+function successControl(input: HTMLInputElement) {
+    let formControl: any;
+    formControl = input.parentElement;
+
+    const successIcon = formControl.querySelector(".fa-check");
+    successIcon.classList.add("icon-success");
+
+    input.classList.add("success-border");
+}
+
 function errorControl(input: HTMLInputElement) {
     let formControl: any;
     formControl = input.parentElement;
@@ -78,26 +99,12 @@ function errorControl(input: HTMLInputElement) {
     errorIcon.classList.add("icon-error");
 
     input.classList.add("error-border");
+    setTimeout(() => {
+        errorControl.classList.remove("error-message");
+        errorIcon.classList.remove("icon-error");
+        input.classList.remove("error-border");
+    }, 3000);
 }
-
-function successControl(input: HTMLInputElement) {
-    let formControl: any;
-    formControl = input.parentElement;
-
-    const successIcon = formControl.querySelector(".fa-check");
-    successIcon.classList.add("icon-success");
-
-    input.classList.add("success-border");
-
-    const allInputs = document.querySelectorAll("form#form .form-box input");
-    console.log(allInputs); 
-    saveToLocalStorage(input);
-}
-
-function saveToLocalStorage(input: HTMLInputElement) {
-    localStorage.setItem(input.name, input.value);
-}
-
 
 function passwordControl(input: HTMLInputElement) {
     let formControl: any;
@@ -111,4 +118,10 @@ function passwordControl(input: HTMLInputElement) {
     errorControl.innerText = "Passwords must match";
 
     input.classList.add("error-border");
+
+    setTimeout(() => {
+        errorIcon.classList.remove("icon-error");
+        errorControl.classList.remove("error-message");
+        input.classList.remove("error-border");
+    }, 3000);
 }
