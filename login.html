@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
+        crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./dist/login.js"></script>
+    <script src="./dist/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h2>Login</h2>
+        </div>
+        <div class="form" id="login-form">
+            <div class="form-box">
+                <label>Username:</label>
+                <input type="text" name="username" id="username">
+                <i class="fas fa-check"></i>
+                <i class="fas fa-times"></i>
+                <p>Field cannot be empty</p>
+            </div>
+            <div class="form-box">
+                <label>Password:</label>
+                <input type="password" name="password" id="password">
+                <i class="fas fa-check"></i>
+                <i class="fas fa-times"></i>
+                <p>Field cannot be empty</p>
+            </div>
+            <button class="btn">Login</button>
+        </div>
+    </div>
+</body>
+</html>
