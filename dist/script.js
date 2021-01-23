@@ -1,8 +1,4 @@
 "use strict";
-const user = document.getElementById("username");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const password2 = document.getElementById("password-check");
 window.addEventListener("load", main);
 function main() {
     addEventListeners();
@@ -15,40 +11,54 @@ function addEventListeners() {
     });
 }
 function checkValidInputValues() {
+    const user = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("password-check");
     const userValue = user.value;
     const emailValue = email.value;
     const passwordValue = password.value;
     const password2Value = password2.value;
-    if (userValue === "") {
+    if (userValue === "" || emailValue === "" || passwordValue === "" || password2Value === "") {
         errorControl(user);
-    }
-    else {
-        successControl(user);
-    }
-    if (emailValue === "") {
         errorControl(email);
-    }
-    else {
-        successControl(email);
-    }
-    if (passwordValue === "") {
         errorControl(password);
-    }
-    else if (passwordValue !== password2Value) {
-        passwordControl(password);
-    }
-    else {
-        successControl(password);
-    }
-    if (password2Value === "") {
         errorControl(password2);
     }
     else if (passwordValue !== password2Value) {
         passwordControl(password2);
+        passwordControl(password);
     }
     else {
+        successControl(user);
+        successControl(email);
+        successControl(password);
         successControl(password2);
     }
+    // if (userValue === "") {
+    //     errorControl(user);
+    // } else {
+    //     successControl(user);
+    // }
+    // if (emailValue === "") {
+    //     errorControl(email);
+    // } else {
+    //     successControl(email);
+    // }
+    // if (passwordValue === "") {
+    //     errorControl(password);
+    // } else if (passwordValue !== password2Value) {
+    //     passwordControl(password);
+    // } else {
+    //     successControl(password);
+    // }
+    // if (password2Value === "") {
+    //     errorControl(password2);
+    // } else if(passwordValue !== password2Value) {
+    //     passwordControl(password2);
+    // } else {
+    //     successControl(password2);
+    // }
 }
 function errorControl(input) {
     let formControl;
@@ -65,9 +75,11 @@ function successControl(input) {
     const successIcon = formControl.querySelector(".fa-check");
     successIcon.classList.add("icon-success");
     input.classList.add("success-border");
-    test(input);
+    const allInputs = document.querySelectorAll("form#form .form-box input");
+    console.log(allInputs);
+    saveToLocalStorage(input);
 }
-function test(input) {
+function saveToLocalStorage(input) {
     localStorage.setItem(input.name, input.value);
 }
 function passwordControl(input) {
