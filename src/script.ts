@@ -44,34 +44,6 @@ function checkValidInputValues() {
         }
     saveToLocalStorage(userObj);
     }
-
-    // if (userValue === "") {
-    //     errorControl(user);
-    // } else {
-    //     successControl(user);
-    // }
-
-    // if (emailValue === "") {
-    //     errorControl(email);
-    // } else {
-    //     successControl(email);
-    // }
-
-    // if (passwordValue === "") {
-    //     errorControl(password);
-    // } else if (passwordValue !== password2Value) {
-    //     passwordControl(password);
-    // } else {
-    //     successControl(password);
-    // }
-
-    // if (password2Value === "") {
-    //     errorControl(password2);
-    // } else if(passwordValue !== password2Value) {
-    //     passwordControl(password2);
-    // } else {
-    //     successControl(password2);
-    // }
 }
 
 function saveToLocalStorage(userObj: object) {
