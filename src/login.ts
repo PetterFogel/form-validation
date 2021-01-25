@@ -17,4 +17,13 @@ function checkValidUserInputValues() {
     const passwordInput = document.getElementById("password") as HTMLInputElement;
     const username = usernameInput.value;
     const password = passwordInput.value;
+
+    const registeredUser = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log(registeredUser);
+
+    if (username === registeredUser.username && password === registeredUser.password) {
+        console.log("samma");
+    } else {
+        console.log("fel");
+    }
 }
