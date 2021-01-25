@@ -46,6 +46,8 @@ body {
     padding: 0.5rem;
     width: 100%;
     outline: none;
+    border-radius: 0.2rem;
+    border: 1px solid rgb(182, 182, 182);
 }
 
 .form-box i {
@@ -106,4 +108,17 @@ body {
 
 .btn:hover {
     background:rgb(206, 50, 164);
+}
+
+.login-link {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+.login-link a {
+    color: rgb(223, 53, 178);
+}
+
+.login-link a:hover {
+    color:rgb(206, 50, 164);
 }
