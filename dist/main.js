@@ -2,7 +2,6 @@
 window.addEventListener("load", main);
 function main() {
     addEventListeners();
-    loginTest();
 }
 function addEventListeners() {
     const form = document.getElementById("form");
