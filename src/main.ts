@@ -43,7 +43,9 @@ function checkValidInputValues() {
             password: password.value
         }
     saveToLocalStorage(userObj);
-    location.href = "./login.html"
+    setTimeout(() => {
+        location.href = "./login.html"
+    }, 3000);
     }
 }
 
