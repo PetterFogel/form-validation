@@ -21,9 +21,65 @@ function checkValidUserInputValues() {
     const registeredUser = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(registeredUser);
 
-    if (username === registeredUser.username && password === registeredUser.password) {
-        console.log("samma");
-    } else {
-        console.log("fel");
+    // Logik strular!!!
+    if (username === "" || password === "") {
+        errorHandler(usernameInput);
+        errorHandler(passwordInput);
+    } else if (username !== registeredUser.username) {
+        userDoNotExistHandler(usernameInput);
+    } 
+    else if (password !== registeredUser.password) {
+        userDoNotExistHandler(passwordInput);
     }
+    else if (username === registeredUser.username && password === registeredUser.password) {
+        successHandler(usernameInput);
+        successHandler(passwordInput);
+    }
+}
+
+function successHandler(input: HTMLInputElement) {
+    let formControl: any;
+    formControl = input.parentElement;
+
+    const successIcon = formControl.querySelector(".fa-check");
+    successIcon.classList.add("icon-success");
+
+    input.classList.add("success-border");
+}
+
+function errorHandler(input: HTMLInputElement) {
+    let formControl: any;
+    formControl = input.parentElement;
+    
+    const errorControl = formControl.querySelector("p") as HTMLParagraphElement;
+    errorControl.classList.add("error-message");
+    
+    const errorIcon = formControl.querySelector(".fa-times");
+    errorIcon.classList.add("icon-error");
+
+    input.classList.add("error-border");
+    setTimeout(() => {
+        errorControl.classList.remove("error-message");
+        errorIcon.classList.remove("icon-error");
+        input.classList.remove("error-border");
+    }, 3000);
+}
+
+function userDoNotExistHandler(input: HTMLInputElement) {
+    let formControl: any;
+    formControl = input.parentElement;
+    
+    const errorControl = formControl.querySelector("p") as HTMLParagraphElement;
+    errorControl.classList.add("error-message");
+    errorControl.innerText = "Cannot find username"
+    
+    const errorIcon = formControl.querySelector(".fa-times");
+    errorIcon.classList.add("icon-error");
+
+    input.classList.add("error-border");
+    setTimeout(() => {
+        errorControl.classList.remove("error-message");
+        errorIcon.classList.remove("icon-error");
+        input.classList.remove("error-border");
+    }, 3000);
 }

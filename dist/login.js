@@ -17,11 +17,56 @@ function checkValidUserInputValues() {
     const password = passwordInput.value;
     const registeredUser = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(registeredUser);
-    if (username === registeredUser.username && password === registeredUser.password) {
-        console.log("samma");
+    // Logik strular!!!
+    if (username === "" || password === "") {
+        errorHandler(usernameInput);
+        errorHandler(passwordInput);
     }
-    else {
-        console.log("fel");
+    else if (username !== registeredUser.username) {
+        userDoNotExistHandler(usernameInput);
     }
+    else if (password !== registeredUser.password) {
+        userDoNotExistHandler(passwordInput);
+    }
+    else if (username === registeredUser.username && password === registeredUser.password) {
+        successHandler(usernameInput);
+        successHandler(passwordInput);
+    }
+}
+function successHandler(input) {
+    let formControl;
+    formControl = input.parentElement;
+    const successIcon = formControl.querySelector(".fa-check");
+    successIcon.classList.add("icon-success");
+    input.classList.add("success-border");
+}
+function errorHandler(input) {
+    let formControl;
+    formControl = input.parentElement;
+    const errorControl = formControl.querySelector("p");
+    errorControl.classList.add("error-message");
+    const errorIcon = formControl.querySelector(".fa-times");
+    errorIcon.classList.add("icon-error");
+    input.classList.add("error-border");
+    setTimeout(() => {
+        errorControl.classList.remove("error-message");
+        errorIcon.classList.remove("icon-error");
+        input.classList.remove("error-border");
+    }, 3000);
+}
+function userDoNotExistHandler(input) {
+    let formControl;
+    formControl = input.parentElement;
+    const errorControl = formControl.querySelector("p");
+    errorControl.classList.add("error-message");
+    errorControl.innerText = "Cannot find username";
+    const errorIcon = formControl.querySelector(".fa-times");
+    errorIcon.classList.add("icon-error");
+    input.classList.add("error-border");
+    setTimeout(() => {
+        errorControl.classList.remove("error-message");
+        errorIcon.classList.remove("icon-error");
+        input.classList.remove("error-border");
+    }, 3000);
 }
 //# sourceMappingURL=login.js.map
