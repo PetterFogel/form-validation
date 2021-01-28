@@ -35,10 +35,10 @@ function checkValidUserInputValues() {
     else if (username === registeredUser.username && password === registeredUser.password) {
         successHandler(usernameInput);
         successHandler(passwordInput);
+        setTimeout(() => {
+            alert("Success!");
+        }, 3000);
     }
-    setTimeout(() => {
-        alert("Success!");
-    }, 3000);
 }
 
 function successHandler(input: HTMLInputElement) {
