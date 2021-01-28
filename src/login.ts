@@ -22,19 +22,23 @@ function checkValidUserInputValues() {
     console.log(registeredUser);
 
     // Logik strular!!!
-    if (username === "" || password === "") {
+    if (username === "") {
         errorHandler(usernameInput);
+    } else if(password === "") {
         errorHandler(passwordInput);
     } else if (username !== registeredUser.username) {
         userDoNotExistHandler(usernameInput);
     } 
     else if (password !== registeredUser.password) {
-        userDoNotExistHandler(passwordInput);
+        passwordDoNotExistHandler(passwordInput);
     }
     else if (username === registeredUser.username && password === registeredUser.password) {
         successHandler(usernameInput);
         successHandler(passwordInput);
     }
+    setTimeout(() => {
+        alert("Success!");
+    }, 3000);
 }
 
 function successHandler(input: HTMLInputElement) {
@@ -71,7 +75,26 @@ function userDoNotExistHandler(input: HTMLInputElement) {
     
     const errorControl = formControl.querySelector("p") as HTMLParagraphElement;
     errorControl.classList.add("error-message");
-    errorControl.innerText = "Cannot find username"
+    errorControl.innerText = "Username is not valid";
+    
+    const errorIcon = formControl.querySelector(".fa-times");
+    errorIcon.classList.add("icon-error");
+
+    input.classList.add("error-border");
+    setTimeout(() => {
+        errorControl.classList.remove("error-message");
+        errorIcon.classList.remove("icon-error");
+        input.classList.remove("error-border");
+    }, 3000);
+}
+
+function passwordDoNotExistHandler(input: HTMLInputElement) {
+    let formControl: any;
+    formControl = input.parentElement;
+    
+    const errorControl = formControl.querySelector("p") as HTMLParagraphElement;
+    errorControl.classList.add("error-message");
+    errorControl.innerText = "Password is not valid";
     
     const errorIcon = formControl.querySelector(".fa-times");
     errorIcon.classList.add("icon-error");
