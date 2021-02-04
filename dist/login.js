@@ -18,6 +18,9 @@ function checkValidUserInputValues() {
     const registeredUser = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(registeredUser);
     // Logik strular!!!
+    if (username === "" && password === "") {
+        errorHandler(usernameInput);
+    }
     if (username === "") {
         errorHandler(usernameInput);
     }

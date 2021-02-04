@@ -22,6 +22,10 @@ function checkValidUserInputValues() {
     console.log(registeredUser);
 
     // Logik strular!!!
+    if (username === "" && password === "") {
+        errorHandler(usernameInput);        
+    }
+
     if (username === "") {
         errorHandler(usernameInput);
     } else if(password === "") {
