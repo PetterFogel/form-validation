@@ -38,7 +38,7 @@ function checkValidUserInputValues() {
         successHandler(passwordInput);
         setTimeout(() => {
             alert("Success!");
-        }, 3000);
+        }, 2000);
     }
 }
 function successHandler(input) {
